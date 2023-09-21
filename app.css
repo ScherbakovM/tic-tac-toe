@@ -1,0 +1,331 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    --mian-color: rgb(155, 185, 249);
+}
+
+
+body {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100dvh;
+    min-width: 1000px;
+    min-height: 1000px;
+    background: #ffffff;
+    background-image: linear-gradient(to right, #a5a5a500 1px, transparent 1px), linear-gradient(to bottom, #a5a5a5 1px, transparent 1px);
+    background-size: 40px 40px;
+
+
+}
+
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    width: 100%;
+    height: 100dvh;
+    z-index: 1000;
+    pointer-events: all;
+    transition: 0.5s ease all;
+}
+
+.modal.notActive {
+    background-color: #f8f0f9;
+}
+
+.modal.close {
+    display: flex;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    font-size: 60px;
+    font-family: "Ballo";
+    color: rgb(255, 255, 255);
+    -webkit-text-stroke: 1px rgba(42, 42, 42, 0.998);
+    text-shadow: 2px 2px black, 3px 3px yellow, 4px 4px black, 5px 5px rgb(247, 143, 240), 6px 6px black;
+    margin-bottom: 60px;
+    z-index: 1002;
+}
+
+.lottie {
+    transform: rotate(5deg);
+    position: absolute;
+    width: 60%;
+    height: 60%;
+    opacity: 0.03;
+    z-index: 1001;
+    border-radius: 99px;
+    filter: blur(1px);
+}
+
+.start {
+    font-size: 30px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 12px;
+    padding: 15px 8px;
+    box-sizing: border-box;
+    border: 0.1px solid rgb(20, 20, 20);
+    box-shadow: 2px 2px yellow, 4px 4px rgb(247, 143, 240), 6px 6px black;
+    z-index: 1002;
+    transition: 0.1s ease all;
+    cursor: pointer;
+}
+
+.start:active {
+    box-shadow: 1px 1px yellow, 2px 2px rgb(247, 143, 240), 3px 3px black;
+}
+
+.game-static {
+    display: flex;
+    position: relative;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    width: 750px;
+    height: 60px;
+    padding-bottom: 20px;
+
+}
+
+.player {
+    color: tomato;
+    transition: 0.3s ease all;
+}
+
+.player.O {
+    color: var(--mian-color);
+}
+
+.game-score {
+    position: absolute;
+    left: 20px;
+    display: flex;
+    height: 40px;
+    font-size: 30px;
+    gap: 10px;
+}
+
+.who-walks {
+    position: absolute;
+    right: 20px;
+    height: 40px;
+    font-size: 30px;
+}
+
+.x-count,
+.y-count {
+    transition: 0.3s ease all;
+}
+
+.x-count {
+    color: var(--mian-color);
+}
+
+.y-count {
+    color: tomato;
+}
+
+.x-count:active,
+.y-count:active {
+    color: red;
+}
+
+.game-box {
+    display: grid;
+    width: 750px;
+    height: 750px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    box-sizing: border-box;
+    overflow: hidden;
+    border: 3px solid var(--mian-color);
+    border-radius: 12px;
+}
+
+.table {
+    font-family: 'Ballo';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 140px;
+    width: 250px;
+    height: 250x;
+    cursor: pointer;
+    box-sizing: border-box;
+    background-color: aliceblue;
+    transition: 0.5s ease all;
+}
+
+.table.winning {
+    color: tomato;
+}
+
+.table:active {
+    -webkit-text-stroke: 2px 2px white;
+    font-size: 60px;
+}
+
+#one,
+#two,
+#three {
+    border-bottom: 1px solid var(--mian-color);
+}
+
+#one,
+#four,
+#seven {
+    border-right: 1px solid var(--mian-color);
+}
+
+#two,
+#five,
+#eight {
+    border-right: 1px solid var(--mian-color);
+}
+
+#seven,
+#eight,
+#nine {
+    border-top: 1px solid var(--mian-color);
+}
+
+
+.alert {
+    position: absolute;
+    display: flex;
+    opacity: 0;
+    transform: scale(0);
+    justify-content: center;
+    align-items: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    color: rgb(75, 75, 75);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 34px;
+    top: 100px;
+    width: max-content;
+    background-color: aliceblue;
+    box-shadow: 2px 2px var(--mian-color);
+    border-radius: 8px;
+    border: 4px solid var(--mian-color);
+    transition: 0.3s ease all;
+}
+
+.alert.open {
+    opacity: 1;
+    transform: scale(1);
+}
+
+
+@media (width < 1400px) {
+    .game-box {
+        width: 600px;
+        height: 600px;
+    }
+
+    .table {
+        width: 200px;
+        height: 200px;
+    }
+
+    .game-static {
+        width: 600px;
+    }
+}
+
+
+@media (width < 700px) {
+    body {
+        min-width: 350px;
+        min-height: 500px;
+        width: 100svw;
+        height: 100svh;
+    }
+
+    .table {
+        font-size: 80px;
+    }
+
+    .alert {
+        top:50px;
+    }
+
+    .game-static {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 380px;
+        height: 50px;
+    }
+
+    .game-score {
+        font-size: 20px;
+    }
+
+    .game-score {
+        font-size: 20px;
+    }
+
+    .game-box {
+        width: 360px;
+        height: 450px;
+    }
+
+    .who-walks {
+        font-size: 20px;
+    }
+
+    .table {
+        width: 120px;
+        height: 150px;
+    }
+
+    .logo {
+        text-align: center;
+        flex-wrap: wrap;
+        font-size: 60px;
+    }
+    .lottie {
+        position: absolute;
+        top: 20px;
+        width: 80%;
+        height: 80%;
+    }
+}
+
+@keyframes background {
+    0% {
+        background-image: linear-gradient(to right top, #ffffff, #ffffff, #ffffff, #ffffff, #ffffff);
+    }
+    100% {
+        background-image: linear-gradient(to right top, #ffc2f3, #f9d3fc, #f6e3ff, #f8f2ff, #ffffff);
+    }
+}
+
+
+@font-face {
+    font-family: "Ballo";
+    src:
+        url("./baloo-cyrillic.ttf");
+}

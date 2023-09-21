@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="app.css">
+
+</head>
+
+<body>
+    <div  id="modal" class="modal">
+        <div class="logo">Крестики нолики</div>
+        <div class="menu"><button type="button" id="start" class="start">Начать игру</button></div>
+        <dotlottie-player class="lottie" src="https://lottie.host/a9a9540b-148d-4a21-bb40-446f60b42490/mZxXfCEHm9.json"
+            speed="0.1" loop="true" autoplay>
+        </dotlottie-player>
+    </div>
+    <div id="alert" class="alert"> &#128577;</div>
+    <div class="game-static">
+        <div class="game-score">
+            <span>Крестики : </span>
+            <div class="x-count" id="x-count"> 0 </div>
+            <span>Нолики : </span>
+            <div class="y-count" id="y-count"> 0 </div>
+        </div>
+        <div class="who-walks">Ходят: <span class="player" id="player"></span></div>
+    </div>
+    <div id="games" class="game-box">
+        <div id="one" class="table"></div>
+        <div id="two" class="table"></div>
+        <div id="three" class="table"></div>
+        <div id="four" class="table"></div>
+        <div id="five" class="table"></div>
+        <div id="six" class="table"></div>
+        <div id="seven" class="table"></div>
+        <div id="eight" class="table"></div>
+        <div id="nine" class="table"></div>
+    </div>
+    <script defer src="game.js"></script>
+    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
+</body>
+
+</html>
